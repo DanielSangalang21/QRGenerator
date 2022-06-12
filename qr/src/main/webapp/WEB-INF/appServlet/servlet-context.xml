@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-4.3.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<!-- <annotation-driven /> -->
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- <resources mapping="/resources/**" location="/resources/" /> -->
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	<mvc:annotation-driven/>
+	<context:component-scan base-package="qr.controller" /> 
+	<context:annotation-config/> 
+	<!-- <annotation-driven  content-negotiation-manager="contentNegotiationManager" /> -->
+	<!-- 
+	<beans:bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+	     <beans:property name="favorPathExtension" value="false" />
+	     <beans:property name="favorParameter" value="true" />
+	     <beans:property name="mediaTypes" >
+	          <beans:value>
+	               json=application/json
+	               xml=application/xml
+	          </beans:value>
+	     </beans:property>
+	</beans:bean>	
+	
+	Controller Exempt List
+	<util:list id="controllerExemptList" value-type="java.lang.String">
+		<beans:value>TransaxnLogDetailsController</beans:value>
+		<beans:value>TransaxnLogDetailsAllController</beans:value>
+		<beans:value>LoginController</beans:value>
+		<beans:value>UserLoginController</beans:value>
+		<beans:value>ChallengeQuestionController</beans:value>
+		<beans:value>ChallengeQuestionsEnrollController</beans:value>
+		<beans:value>SiteKeyImageMaintenanceController</beans:value>
+		<beans:value>SiteKeyPhraseMaintenanceController</beans:value>
+		<beans:value>RegisteredComputerUpdateController</beans:value>				
+		<beans:value>MessageDetailController</beans:value>
+		<beans:value>ForgotPasswordController</beans:value>
+		<beans:value>HomeController</beans:value>
+		<beans:value>LoginDetailsController</beans:value>
+		<beans:value>LogoutController</beans:value>
+		<beans:value>TableFormController</beans:value>
+		<beans:value>SearchMerchantController</beans:value>
+		<beans:value>DBDetailsEncryptController</beans:value>
+		<beans:value>ResetUserPasswordController</beans:value>
+		<beans:value>TransaxnLogController</beans:value>
+		<beans:value>TxnFormTemplateController</beans:value>
+		<beans:value>TransaxnLogAllController</beans:value>
+		LEL: 20150507
+		<beans:value>CodeRedController</beans:value>
+		<beans:value>CodeRedLoginController</beans:value>
+		<beans:value>CodeRedSearchController</beans:value>
+		<beans:value>CodeRedSearchLastController</beans:value>
+		LGT: 20161222
+		<beans:value>ReportsListController</beans:value>
+		<beans:value>ReportsListSystemAccessExcController</beans:value>
+		<beans:value>ReportsListDailyTransactionJournalController</beans:value>							
+		<beans:value>ReportsListDateRangeController</beans:value>
+		<beans:value>ReportsListGroupPermissionController</beans:value>
+		<beans:value>ReportsListMonthlyScheduleBillsPaymentController</beans:value>
+		<beans:value>ReportsListMonthYearSelectionController</beans:value>
+		<beans:value>ReportsListScheduleCheckRequisitionController</beans:value>	
+		<beans:value>ReportsListSecAdminActivityController</beans:value>
+		<beans:value>ReportsListSystemAdminActivityController</beans:value>
+		<beans:value>ReportsListBusAdminActivityController</beans:value>
+		<beans:value>ReportsListUserPermissionController</beans:value>
+		<beans:value>ReportsListDateRangeSelectionController</beans:value>
+		<beans:value>ReportsListOTPUsersController</beans:value>
+		
+		LEL: 20161223
+		<beans:value>ReloadSystemVarsController</beans:value>
+		<beans:value>ResetPasswordController</beans:value>
+		
+		<beans:value>ParameterMaintenanceAddDetailsController</beans:value>
+		<beans:value>ParameterMaintenanceModifyDetailsController</beans:value>
+
+		<beans:value>PlottingFileUploadController</beans:value>
+		<beans:value>PlottingFileDownloadController</beans:value>
+
+		<beans:value>MCAppraisalReportController</beans:value>
+		<beans:value>RealEstateAppraisalReportController</beans:value>
+		<beans:value>RealEstateAppraisalReportImpController</beans:value>
+		<beans:value>OTPValidationController</beans:value>
+		<beans:value>OTPValidationv2Controller</beans:value>
+
+		WS
+		<beans:value>MobileOfflineOTPCheckUserRegistrationController</beans:value>
+		<beans:value>MobileOfflineOTPCredentialsValidationController</beans:value>
+		<beans:value>MobileOfflineOTPValidationController</beans:value>
+		<beans:value>MobileOfflineOTPValidationRegistrationController</beans:value>
+		<beans:value>MobileOfflineOTPValidationUnregistrationController</beans:value>
+		<beans:value>MobileOnlineOTPRequestController</beans:value>
+		<beans:value>MobileOnlineOTPValidationController</beans:value>
+		<beans:value>MobileOnlineOTPSystemListController</beans:value>
+		<beans:value>WSOTPController</beans:value>
+	</util:list>
+
+	<interceptors>
+		<beans:bean id="pageControllerInterceptors" class="tera.base.PageControllerInterceptor">
+			<beans:property name="controllerExemptLists" ref="controllerExemptList" />
+		</beans:bean>
+		<beans:bean id="approvalInterceptor" class="tera.base.ApprovalInterceptor"/>
+	</interceptors>
+
+	Valid Dropdowns for applications
+	<util:list id="dropdownList" value-type="java.lang.String">
+		<beans:value>requestStatus</beans:value>
+		<beans:value>provinces</beans:value>
+		<beans:value>cities</beans:value>
+		<beans:value>purposes</beans:value>
+		<beans:value>classifications</beans:value>
+		<beans:value>actualUse</beans:value>
+		<beans:value>occupancies</beans:value>
+		<beans:value>waters</beans:value>
+		<beans:value>electricities</beans:value>
+		<beans:value>telephones</beans:value>
+		<beans:value>reviewers</beans:value>
+		<beans:value>verified</beans:value>
+	</util:list>
+		
+	<mvc:interceptors>
+	    <mvc:interceptor>
+	        <mvc:mapping path="/Mobile/*"/>
+	        <beans:bean class="tera.base.otpgenerator.WebServiceInterceptor" />
+	    </mvc:interceptor>
+	</mvc:interceptors> -->
+</beans:beans>
